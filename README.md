@@ -13,3 +13,5 @@ Key Endpoints:
 * /hotels
 * /configprops
 * /env
+
+Copied from https://github.com/pivotal-education/hotels.git for my personal cloud foundry proof of concept
