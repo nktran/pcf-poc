@@ -1,7 +1,10 @@
 pipeline {
     agent any
-
     stages {
+        stage('Checkout source') {
+            git credentialsId: 'github.com', url: 'https://github.com/nktran/pcf-poc.git'
+            checkout scm
+            }
         stage('Build') {
             steps {
                 echo 'Building..'
