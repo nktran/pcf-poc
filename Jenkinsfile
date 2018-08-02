@@ -34,7 +34,7 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', onlyIfSuccessful: true
             }
         }
-        
+      
         stage('Delete Web Applcation to PCF') {
             steps {
                 sh 'cf delete hotels -r -f'
