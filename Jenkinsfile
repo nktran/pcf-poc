@@ -18,7 +18,7 @@ pipeline {
         stage('Login to Pivotal Cloud Foundry') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'pivotaluser', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                sh 'cf login -u $USERNAME -p $PASSWORD -a $ENDPOINT -o $ORG -s $SPACE'
+                sh 'cf login -u $USERNAME -p $PASSWORD -a $API_URL -o $ORG -s $SPACE'
                     }
                 }
         }
