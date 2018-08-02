@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Checkout source') {
             git url: 'git://github.com/nktran/pcf-poc.git',
+                branch: 'master'
             checkout scm
             }
         stage('Build') {
