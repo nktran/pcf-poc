@@ -23,7 +23,7 @@ pipeline {
                 }
         }
         
-        stage('Deploy') {
+        stage('Deploy Web Applcation to PCF') {
             steps {
                 echo 'Deploying....'
                 sh 'cf push hotels -p $WORKSPACE/hotels/target/hotels-0.0.1-SNAPSHOT.jar --random-route'
