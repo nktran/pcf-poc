@@ -15,10 +15,10 @@ pipeline {
                 }
             }
         
-        stage('Deploy to Pivotal Cloud Foundry') {
+        stage('Login to Pivotal Cloud Foundry') {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'pivotaluser', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                sh 'echo uname=$USERNAME pwd=$PASSWORD'
+                sh 'cf login -a $ENDPOINT -u $USERNAME -p $PASSWORD -o $ORG -s $SPACE'
                     }
                 }
         }
