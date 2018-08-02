@@ -18,7 +18,7 @@ pipeline {
         stage('Deploy to Pivotal Cloud Foundry') {
             steps {
                     withCredentials([string(credentialsId: 'nktran75', variable: 'password')])
-                    echo '$password'
+                    echo "My password is '${password}'!"
                     }
                 }
         
