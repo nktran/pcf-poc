@@ -31,7 +31,7 @@ pipeline {
         
         stage('Archive deployment package, if successful') {
             steps {
-                archiveArtifacts artifacts: '$WORKSPACE/target/*.jar', onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'target/*.jar', onlyIfSuccessful: true
             }
         }
         
