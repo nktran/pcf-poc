@@ -17,12 +17,10 @@ pipeline {
         
         stage('Deploy to Pivotal Cloud Foundry') {
             steps {
-                node {
                     withCredentials([string(credentialsId: 'nktran75', variable: 'password')])
                     echo '$password'
                     }
                 }
-            }
         
         stage('Deploy') {
             steps {
