@@ -26,6 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'cf push hotels -p $WORKSPACE/hotels/target/hotels-0.0.1-SNAPSHOT.jar --random-route'
             }
         }
     }
