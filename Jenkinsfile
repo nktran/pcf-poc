@@ -17,10 +17,12 @@ pipeline {
         
         stage('Deploy to Pivotal Cloud Foundry') {
             steps {
-                    withCredentials([string(credentialsId: 'pivotaluser', variable: 'password')])
-                    echo "My password is '${password}'!"
-                    }
-                }
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'pivotaluser',
+                usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+                sh 'echo uname=$USERNAME pwd=$PASSWORD'
+ }
+}
         
         stage('Deploy') {
             steps {
