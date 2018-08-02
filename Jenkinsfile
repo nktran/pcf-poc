@@ -2,9 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Checkout source') {
-            git url: 'git://github.com/nktran/pcf-poc.git',
-                branch: 'master'
-            checkout scm
+            steps {
+                checkout scm
+                git credentialsId: 'github.com', url: 'https://github.com/nktran/pcf-poc.git', branch: 'master'
+                }
             }
         stage('Build') {
             steps {
