@@ -1,5 +1,20 @@
 pipeline {
     agent any
+        parameters {
+            choice(
+                name: 'API_URL',
+                choices:"https://api.run.pivotal",
+                description: "")
+            choice(
+                name: 'ORG',
+                choices:"personal-cloud-foundry",
+                description: "" )
+            choice(
+                name: 'SPACE',
+                choices:"development\ntest",
+                description: "")
+        }
+    
     stages {
         stage('Checkout source') {
             steps {
